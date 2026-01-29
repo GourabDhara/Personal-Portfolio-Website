@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark glassmorphism theme (default) */
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 190 90% 50%;
+    --primary-foreground: 222 47% 6%;
+
+    --secondary: 260 60% 60%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 222 30% 15%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 190 80% 45%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 30% 20%;
+    --input: 222 30% 18%;
+    --ring: 190 90% 50%;
+
+    --radius: 1rem;
+
+    /* Glassmorphism tokens */
+    --glass-bg: 222 47% 10%;
+    --glass-border: 222 30% 25%;
+    --glass-blur: 20px;
+    
+    /* Gradient accents */
+    --gradient-primary: linear-gradient(135deg, hsl(190 90% 50%) 0%, hsl(260 60% 60%) 100%);
+    --gradient-glow: linear-gradient(135deg, hsl(190 90% 50% / 0.3) 0%, hsl(260 60% 60% / 0.3) 100%);
+    --gradient-text: linear-gradient(135deg, hsl(190 90% 60%) 0%, hsl(260 70% 70%) 100%);
+    
+    /* Hero overlay for dark mode */
+    --hero-overlay: hsl(222 47% 6% / 0.7);
+    
+    /* Shadows */
+    --shadow-glass: 0 8px 32px hsl(222 47% 6% / 0.4);
+    --shadow-glow-cyan: 0 0 40px hsl(190 90% 50% / 0.3);
+    --shadow-glow-purple: 0 0 40px hsl(260 60% 60% / 0.3);
+    
+    /* Sidebar */
+    --sidebar-background: 222 47% 8%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 190 90% 50%;
+    --sidebar-primary-foreground: 222 47% 6%;
+    --sidebar-accent: 222 30% 15%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 222 30% 20%;
+    --sidebar-ring: 190 90% 50%;
+  }
+
+  /* Light mode theme */
+  .light {
+    --background: 220 20% 97%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 190 80% 42%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 260 50% 55%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 190 70% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 190 80% 42%;
+
+    /* Glassmorphism tokens for light mode */
+    --glass-bg: 0 0% 100%;
+    --glass-border: 220 20% 88%;
+    --glass-blur: 20px;
+    
+    /* Gradient accents - vibrant for light mode */
+    --gradient-primary: linear-gradient(135deg, hsl(190 80% 50%) 0%, hsl(260 60% 60%) 100%);
+    --gradient-glow: linear-gradient(135deg, hsl(190 80% 50% / 0.15) 0%, hsl(260 60% 60% / 0.15) 100%);
+    --gradient-text: linear-gradient(135deg, hsl(190 80% 35%) 0%, hsl(260 60% 45%) 100%);
+    
+    /* Shadows - elegant for light mode */
+    --shadow-glass: 0 8px 32px hsl(220 20% 20% / 0.06);
+    --shadow-glow-cyan: 0 4px 30px hsl(190 80% 50% / 0.2);
+    --shadow-glow-purple: 0 4px 30px hsl(260 60% 55% / 0.2);
+    
+    /* Light mode hero overlay with gradient */
+    --hero-overlay: linear-gradient(135deg, hsl(220 30% 98% / 0.92) 0%, hsl(190 40% 97% / 0.88) 50%, hsl(260 30% 98% / 0.92) 100%);
+    
+    /* Light mode gradient background */
+    --page-gradient: linear-gradient(135deg, hsl(220 30% 98%) 0%, hsl(200 40% 96%) 25%, hsl(240 30% 97%) 50%, hsl(190 35% 96%) 75%, hsl(260 25% 98%) 100%);
+    
+    /* Sidebar */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 190 80% 42%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 96%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 190 80% 42%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .light body {
+    background: var(--page-gradient);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+@layer components {
+  /* Glass card styles */
+  .glass-card {
+    @apply relative overflow-hidden rounded-2xl border border-glass-border;
+    background: hsl(var(--glass-bg) / 0.6);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    box-shadow: var(--shadow-glass);
+  }
+
+  .light .glass-card {
+    background: hsl(var(--glass-bg) / 0.8);
+    border-color: hsl(var(--border));
+    box-shadow: 0 4px 20px hsl(220 20% 20% / 0.08);
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-500;
+  }
+
+  .glass-card-hover:hover {
+    @apply border-primary/50;
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-glass), var(--shadow-glow-cyan);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Gradient border */
+  .gradient-border {
+    @apply relative;
+  }
+
+  .gradient-border::before {
+    content: '';
+    @apply absolute inset-0 rounded-2xl p-[1px];
+    background: var(--gradient-primary);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .gradient-border:hover::before {
+    opacity: 1;
+  }
+
+  /* Glow effects */
+  .glow-cyan {
+    box-shadow: var(--shadow-glow-cyan);
+  }
+
+  .glow-purple {
+    box-shadow: var(--shadow-glow-purple);
+  }
+
+  /* Section styling */
+  .section-container {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32;
+  }
+
+  .section-title {
+    @apply text-3xl sm:text-4xl lg:text-5xl font-bold mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-muted-foreground text-lg max-w-2xl;
+  }
+
+  /* Animated underline */
+  .animated-underline {
+    @apply relative inline-block;
+  }
+
+  .animated-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
+  }
+
+  .animated-underline:hover::after {
+    @apply w-full;
+  }
+
+  /* Skill bar */
+  .skill-bar {
+    @apply h-2 rounded-full bg-muted overflow-hidden;
+  }
+
+  .skill-bar-fill {
+    @apply h-full rounded-full;
+    background: var(--gradient-primary);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
