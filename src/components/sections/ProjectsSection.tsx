@@ -39,7 +39,7 @@ const projects = [
     category: "UI/UX Design",
     description: "An e-commerce accessories store UX case study focused on improving product discovery, navigation clarity, and checkout usability.",
     icon: Smartphone,
-    link: "https://www.behance.net/gourabdhara",
+    link: "https://www.behance.net/gallery/243264983/OG-Zone-E-Commerce-App-UX-Case-Study",
     gradient: "from-primary/20 to-secondary/20",
     accentColor: "primary",
     video: ogZoneVideo,
